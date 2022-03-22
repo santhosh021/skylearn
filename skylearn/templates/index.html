@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+  <!-- slider section -->
+  <div class="hero-image slider" style="background-image: url({% static 'images/homepage.jpg' %});">
+    <div class="hero-text hideselection">
+      <h1 style="font-size:50px;">Welcome to Sky Learn</h1>
+      <div class="text" style="user-select: none;"></div><br>
+      <a href="#services"><button class="btn btn-custom btn-lg">Dive in</button></a>
+    </div>
+  </div>
+
+  <!-- Services section -->
+  <div id="services">
+
+  </div>
+  <div class="container card cardg">
+
+    <div class="container text-center topborder">
+
+          <h1><strong>SERVICES</strong></h1>
+          <p>Theses are the services provided by us.</p>
+
+
+      <div class="row">
+        <div class="col-md-4">
+          <a href="{% url 'lectures:lecture' %}" style="color:inherit;text-decoration:none;">
+          <div class="card allborder service-wrap cards" style="height: 230px;">
+            <div class="card-body">
+              <div class="service-icon">
+         					<i class="fa-solid fa-book-open"></i>
+         			</div>
+              <h5 class="card-title">Programming Lectures</h5>
+              <p class="card-text">Here you will find all the lecture tutorials related to programming languages like Java, Python, Android etc.</p>
+            </div>
+          </div>
+          </a>
+        </div>
+
+        <div class="col-md-4">
+          <a href="{% url 'videos:courses' %}" style="color:inherit;text-decoration:none;">
+          <div class="card allborder service-wrap cards" style="height: 230px;">
+            <div class="card-body">
+              <div class="service-icon">
+         					<i class="fa-solid fa-play"></i>
+         			</div>
+              <h5 class="card-title">Video Tutorials</h5>
+              <p class="card-text">Here you will find all the videos tutorials related to programming languages like Java, Python, Android etc.</p>
+            </div>
+          </div>
+          </a>
+        </div>
+
+        <div class="col-md-4">
+          <a href="{% url 'exercises:category' %}" style="color:inherit;text-decoration:none;">
+            <div class="card allborder service-wrap cards" style="height: 230px;">
+              <div class="card-body">
+                <div class="service-icon">
+                  <i class="fa-solid fa-code"></i>
+           			</div>
+                <h5 class="card-title">Exercises</h5>
+                <p class="card-text">Here you will find problem programs for practice and their implementation also which will improve your coding skill</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div id='ourworks'>
+
+  </div>
+  <!-- Services section end -->
+  <div class="container text-center topborder">
+    <h1 class="topborder allborder" id='ourworks'><strong>Our Works</strong></h1>
+    <div class="popup-gallery">
+    	<a href="{% static 'images/work1.png' %}" title="The Cleaner"><img src="{% static 'images/work1.png' %}" width="300" height="175" style="margin:10px;" class="cardf cards"></a>
+    	<a href="{% static 'images/work2.png' %}" title="The Cleaner"><img src="{% static 'images/work2.png' %}" width="300" height="175" style="margin:10px;" class="cardf cards"></a>
+    	<a href="{% static 'images/work3.png' %}" title="The Cleaner"><img src="{% static 'images/work3.png' %}" width="300" height="175" style="margin:10px;" class="cardf cards"></a>
+    	<a href="{% static 'images/work4.png' %}" title="The Cleaner"><img src="{% static 'images/work4.png' %}" width="300" height="175" style="margin:10px;" class="cardf cards"></a>
+      <br>
+    	<a href="{% static 'images/work6.png' %}" title="The Cleaner"><img src="{% static 'images/work6.png' %}" width="300" height="175" style="margin:10px;" class="cardf cards"></a>
+      <a href="{% static 'images/work5.png' %}" title="The Cleaner"><img src="{% static 'images/work5.png' %}" width="300" height="175" style="margin:10px;" class="cardf cards"></a>
+    	<a href="{% static 'images/work7.png' %}" title="The Cleaner"><img src="{% static 'images/work7.png' %}" width="300" height="175" style="margin:10px;" class="cardf cards"></a>
+    	<a href="{% static 'images/work8.png' %}" title="The Cleaner"><img src="{% static 'images/work8.png' %}" width="300" height="175" style="margin:10px;" class="cardf cards"></a>
+    </div>
+  </div>
+
+  <div id='contactme'>  </div>
+  <section class="container mt-5 topborder">
+    <h1 class="text-center allborder"><strong>Contact Me</strong></h1>
+   <!--Contact heading-->
+   <div class="row">
+      <!--Grid column-->
+      <div class="col-sm-12 mb-4 col-md-5">
+         <!--Form with header-->
+         <div class="card border-dark rounded-0">
+            <div class="card-header p-0">
+               <div class="bg-custom text-white text-center py-2">
+                  <h3><i class="fa fa-envelope"></i> Write to us:</h3>
+                  <p class="m-0">We’ll write rarely, but only the best content.</p>
+               </div>
+            </div>
+            <div class="card-body p-3">
+              <div class="form-group">
+                <label> Your name </label>
+                <div class="input-group">
+                    <input value="" type="text" name="data[name]" class="form-control" id="inlineFormInputGroupUsername" placeholder="Your name">
+                </div>
+				      </div>
+              <div class="form-group">
+                <label>Your email</label>
+                <div class="input-group mb-2 mb-sm-0">
+                 <input type="email" value="" name="data[email]" class="form-control" id="inlineFormInputGroupUsername" placeholder="Email">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Subject</label>
+                <div class="input-group mb-2 mb-sm-0">
+                  <input type="text" name="data[subject]" class="form-control" id="inlineFormInputGroupUsername" placeholder="Subject">
+                </div>
+              </div>
+              <div class="form-group">
+                 <label>Message</label>
+                 <div class="input-group mb-2 mb-sm-0">
+                    <input type="text" class="form-control" name="mesg" placeholder="Message">
+                 </div>
+              </div>
+              <div class="text-center allborder">
+                 <input type="submit" name="submit" value="submit" class="btn btn-custom btn-block rounded-0 py-2">
+              </div>
+            </div>
+          </div>
+        </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-sm-12 col-md-7">
+         <!--Google map-->
+         <div class="mb-4">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15750.097492681487!2d79.30287832594347!3d9.286718443476904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b01e3c4e61cf2b3%3A0xd667f9b98bbd63a1!2sRameswaram%2C%20Tamil%20Nadu%20623526!5e0!3m2!1sen!2sin!4v1647534650754!5m2!1sen!2sin" width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+         </div>
+         <!--Buttons-->
+         <div class="row text-center">
+            <div class="col-4">
+               <a class="bg-custom px-3 py-2 rounded text-white mb-2 d-inline-block"><i class="fa fa-map-marker"></i></a>
+               <p>19/144, Puduroad<br>Rameshwaram</p>
+            </div>
+            <div class="col-4">
+               <a class="bg-custom px-3 py-2 rounded text-white mb-2 d-inline-block"><i class="fa fa-phone"></i></a>
+               <p>+91- 9789429543</p>
+            </div>
+            <div class="col-4">
+               <a class="bg-custom px-3 py-2 rounded text-white mb-2 d-inline-block"><i class="fa fa-envelope"></i></a>
+               <p>santhoshmail21@gmail.com</p>
+            </div>
+         </div>
+      </div>
+      <!--Grid column-->
+	    </div>
+    </section>
+
+{% include '_footer.html' %}
+
+
+
+<!-- My JS -->
+<script src="{% static 'js/master.js' %}" type="text/javascript" charset="utf-8"></script>
+
+<!-- Typed js -->
+<script src="{% static 'js/typed.min.js' %}" type="text/javascript" charset="utf-8"></script>
+
+<!-- Ripples js -->
+<script src="{% static 'js/jquery.ripples-min.js' %}" type="text/javascript" charset="utf-8"></script>
+{% endblock %}

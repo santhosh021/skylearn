@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block lecture %}active{% endblock %}
+{% block content %}
+{% if data %}
+  <div class="row">
+    <div class="col-3">
+      <div class="flex-column bg-light" id="sticky-sidebar" style="width: 280px;height: 689px">
+      <span class="fs-4">{{ data.title|capfirst }}</span>
+      {% for item in article %}
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a href="{% url 'lectures:articledetail' title=item.title topic=item.slug %}" class="nav-link link-dark" aria-current="page">
+              {{ item.topic }}
+            </a>
+          </li>
+        </ul>
+      {% endfor %}
+      </div>
+    </div>
+
+    <div class="allborder container col-9 justify-content-end">
+      {{ data.description|safe }}
+    </div>
+  </div>
+
+  {% else %}
+  <div class="container topborder text-centerr">
+    <h1 class="text-center topborder allborder">No Lectures Found :(</h1>
+  </div>
+  {% include '_footer.html' %}
+  {% endif %}
+
+{% endblock %}

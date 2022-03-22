@@ -1,0 +1,12 @@
+{% load i18n %}
+
+
+<form method="post">
+  {% csrf_token %}
+  <button id="linkid" type="submit"></button>
+</form>
+<script>
+  window.onload=function(){
+  document.getElementById("linkid").click();
+};
+</script>

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block exercise %}active{% endblock %}
+{% block content %}
+{% if quizlist %}
+  <script type="text/javascript">
+    let a = {}
+    let b = ''
+    let c = ''
+  </script>
+
+  <div class="container mt-5 pt-5">
+    <div class="col-md-6 mx-auto">
+      <h1>Give Quiz</h1>
+      {% for quiz in quizlist %}
+        <hr>
+        <h5>{{forloop.counter}}. {{ quiz }}</h5>
+
+        {% for choice in quiz.question_choice.all %}
+          <div class="form-check alert alert-light" id="{{choice.id}}" >
+            <input class="form-check-input" type="radio" name="{{ quiz }}" id="{{ quiz }}{{ choice }}" var={{choice.id}} values='{{choice}}' onclick="myFunction()">
+            <label class="form-check-label" for="{{ quiz }}{{ choice }}">
+              {{choice}}
+            </label>
+          </div>
+
+          <script type="text/javascript">
+            function myFunction() {
+              if(event.target.getAttribute("values") == a[event.target.getAttribute("name")]) {
+                c = document.querySelectorAll(".form-check alert alert-danger")
+
+                b = event.target.getAttribute("var")
+                for (var i = 0; i < c.length;  i++) {
+                c[i].setAttribute("class", "form-check alert alert-light");
+                }
+
+                document.getElementById(b).setAttribute("class", "form-check alert alert-success");
+              }
+              else {
+                c = document.querySelectorAll(".form-check alert alert-danger")
+
+                for (var i = 0; i < c.length;  i++) {
+                c[i].setAttribute("class", "form-check alert alert-light");
+                }
+
+                b = event.target.getAttribute("var")
+                document.getElementById(b).setAttribute("class", "form-check alert alert-danger");
+              }
+
+            }
+
+            {% for ans in quiz.question_answer.all %}
+              a['{{quiz}}']="{{ ans }}"
+            {% endfor %}
+          </script>
+        {% endfor %}
+      {% endfor %}
+      <hr>
+    </div>
+  </div>
+{% else %}
+  <div class="container topborder text-centerr">
+    <h1 class="text-center topborder allborder">No Quiz Found :(</h1>
+  </div>
+{% endif %}
+
+{% include "_footer.html" %}
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block exercise %}active{% endblock %}
+{% block content %}
+
+<div class="hero-image container-fluid" style="background-image: url({% static 'images/lecture.png' %});height:600px;width:auto;"></div>
+
+<div class="container topborder text-centerr">
+  <h1 class="text-center topborder allborder">Programming Exercises</h1>
+  <p class='text-center'>Following are the available programming languages.<br>Start learning today</p>
+</div>
+
+<div class="container topborder">
+  <div class="row">
+    {% for object in object_list %}
+      <div class="col-md-4">
+        <a href="{% url 'exercises:quiz_list' category=object.category_name %}" style="color:inherit;text-decoration:none;">
+          <div class="card cardg cardonhover" style='width:350px; height:290px; margin:auto;'>
+            <img src="/{{ object.category_image }}" alt="Oops, Image not found" class="">
+            <div class="card-body  text-center">
+              <h3 style="font-size:35px;">{{ object.category_name }}</h3>
+            </div>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% include '_footer.html' %}
+
+{% endblock %}

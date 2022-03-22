@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block video %}active{% endblock %}
+{% block content %}
+
+
+
+<body style="background: black;">
+  <div class="bg-custom text-light">
+    <h1 class="text-center">{{ viddetail.video_name }}</h1>
+  </div>
+  <div class="container" style="display:flex;justify-content:center;align-items:center;height:650px">
+    <iframe width="80%" height="80%" src="{{ viddetail.video_url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay=; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</body>
+
+{% endblock %}

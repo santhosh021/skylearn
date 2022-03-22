@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block video %}active{% endblock %}
+{% block content %}
+
+
+{% if vidlist %}
+
+
+<div class="container">
+  <div class="row">
+    {% for object in vidlist %}
+      <div class="col-md-4 topborder">
+        <a href="{% url 'videos:videodetail' course_name_slug=object.video_course video_name_slug=object.video_name_slug %}" style="color:inherit;text-decoration:none;">
+          <div class="card cardg cardonhover" style='width:350px; margin:auto;'>
+            <img src="/{{ object.video_image }}" alt="Oops, Image not found" class="">
+            <div class="card-body  text-center">
+              <h3 class="">{{ object.video_name }}</h3>
+            </div>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% else %}
+<div class="container topborder text-centerr">
+  <h1 class="text-center topborder allborder">No Videos Found :(</h1>
+</div>
+{% endif %}
+
+
+{% include '_footer.html' %}
+{% endblock %}
